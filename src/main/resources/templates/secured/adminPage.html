@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Page</title>
+</head>
+<body>
+<H1>This is supposed to be a secured page. Access to which is only given to users with ADMIN roles</H1>
+    <form action="/logout">
+        <button type="submit">Logout</button>
+    </form>
+
+<div style="text-align: center;">
+    <form action="/admin/add" method="post">
+        First Name <input required type="text" name="firstName"/><br>
+        Last Name <input required type="text" name="lastName"/><br>
+        Contact <input required type= "number" name="contact"/><br>
+        Role
+        <select name="assignedRole">
+        <option >Admin</option>
+        <option >Staff</option>
+        <option >Visitor</option>
+    </select><br>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+
+
+
+
+</body>
+</html>

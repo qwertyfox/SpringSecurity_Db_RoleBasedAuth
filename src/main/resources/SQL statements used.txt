@@ -1,0 +1,27 @@
+
+// User_details view
+CREATE VIEW User_details AS
+SELECT User.userID, User.first_name, User.last_name, User.contact_no, Roles.role_name
+FROM username_password
+INNER JOIN User ON User.userId = username_password.userID
+INNER JOIN user_roles ON User.userId = user_roles.userID
+INNER JOIN Roles ON user_roles.roleId = Roles.roleID;
+
+
+// username_password table
+CREATE TABLE username_password(
+	userID	INTEGER,
+	username TEXT,
+	password TEXT,
+	FOREIGN KEY(userID) REFERENCES User(userID) ON DELETE CASCADE
+);
+
+
+ALTER TABLE username_password RENAME TO old;
+CREATE TABLE username_password(
+	userID	INTEGER,
+	username TEXT,
+	password TEXT,
+	FOREIGN KEY(userID) REFERENCES User(userID) ON DELETE CASCADE
+);
+INSERT INTO username_password SELECT * FROM old;

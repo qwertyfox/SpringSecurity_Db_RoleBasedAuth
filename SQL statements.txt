@@ -1,0 +1,6 @@
+CREATE VIEW User_details AS 
+SELECT User.userID, User.first_name, User.last_name, User.contactNo, Roles.roleName
+FROM username_password
+INNER JOIN User ON User.userId = username_password.userID
+INNER JOIN user_roles ON User.userId = user_roles.userID
+INNER JOIN Roles ON user_roles.roleId = Roles.roleID 
